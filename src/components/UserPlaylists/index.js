@@ -1,7 +1,10 @@
 import UserPlaylists from './component';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchPlaylists } from '../../actions/playlistActions';
+import {
+  fetchPlaylists,
+  fetchPlaylistSongs
+} from '../../actions/playlistActions';
 
 const mapStateToProps = state => {
   return {
@@ -16,7 +19,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      fetchPlaylists
+      fetchPlaylists,
+      fetchPlaylistSongs
     },
     dispatch
   );
