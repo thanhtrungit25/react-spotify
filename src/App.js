@@ -10,6 +10,12 @@ import UserPlaylists from './components/UserPlaylists';
 import UserSongs from './components/UserSongs';
 
 class App extends Component {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.token) {
+      this.props.fetchUser(nextProps.token);
+    }
+  }
+
   componentDidMount() {
     console.log('componentDidMount');
     var hashParams = {};
@@ -32,22 +38,18 @@ class App extends Component {
     }
   }
 
-  showProfile = () => {
-    this.props.fetchUser(this.props.token);
-  };
-
   render() {
     return (
       <div className="App">
-        <p onClick={this.showProfile}>Click here to load profile</p>
-        <div className="header">
-          <UserDetails />
-        </div>
         <div className="app-container">
           <div className="left-side-section">
             <UserPlaylists />
           </div>
+
           <div className="main-section">
+            <div className="header">
+              <UserDetails />
+            </div>
             <UserSongs />
           </div>
         </div>

@@ -3,9 +3,7 @@ import './UserSongs.css';
 
 class UserSongs extends React.Component {
   componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps', nextProps);
     if (nextProps.token !== '' && nextProps.songs === '') {
-      console.log('in here');
       this.props.fetchSongs(nextProps.token);
     }
   }
@@ -20,6 +18,10 @@ class UserSongs extends React.Component {
     return this.props.songs.map(song => {
       return (
         <li className="user-song-item" key={song.track.id}>
+          <div className="play-song">
+            <i className="fa fa-play-circle-o play-btn" aria-hidden="true" />
+          </div>
+
           <div className="song-title">
             <p>{song.track.name}</p>
           </div>
@@ -41,6 +43,26 @@ class UserSongs extends React.Component {
     return (
       <div className="user-songs-container">
         <h2 className="section-title">Songs</h2>
+
+        <div className="song-header-container">
+          <div className="song-title-header">
+            <p>Title</p>
+          </div>
+
+          <div className="song-artist-header">
+            <p>Artist</p>
+          </div>
+
+          <div className="song-album-header">
+            <p>Album</p>
+          </div>
+
+          <div className="song-length-header">
+            <p>
+              <i className="fa fa-clock-o" aria-hidden="true" />
+            </p>
+          </div>
+        </div>
 
         {this.props.songs && this.renderSongs()}
       </div>

@@ -1,26 +1,81 @@
+.user-songs-container {
+  position: relative;
+  top: 80px;
+}
+
 .section-title {
   font-size: 34px;
   font-weight: 800;
   padding: 20px 0;
+  font-family: 'Proxima Bold', Georgia, sans-serif;
 }
 
-li.user-song-item {
+.user-song-item {
   list-style-type: none;
   border-bottom: 1px solid #666;
   display: flex;
   line-height: 40px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.user-song-item:hover {
+  background: #202020;
+}
+
+.user-song-item > .play-song {
+  opacity: 1;
+}
+
+.play-song {
+  width: 40px;
+  opacity: 0;
+  text-align: center;
+}
+
+.play-song .fa {
+  font-size: 26px;
+  position: relative;
+  top: 5px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.play-song .fa:hover {
+  color: #fff;
 }
 
 .song-title,
 .song-artist,
-.song-album {
+.song-album,
+.song-title-header,
+.song-artist-header,
+.song-album-header{
   width: 250px;
 }
 
-.song-title p,
-.song-artist p,
-.song-album p {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.song-title-header {
+  margin-left: 40px;
+}
+
+.song-title-header p,
+.song-artist-header p,
+.song-album-header p,
+.song-length-header p {
+  font-family: 'Proxima Thin', Georgia, sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #ccc;
+  padding: 0 8px;
+}
+
+.song-length-header .fa.fa-clock-o {
+  font-size: 15px;
+  color: #eee;
+}
+
+.song-header-container {
+  display: flex;
+  border-bottom: 1px solid #666;
+  padding-bottom: 6px;
 }
