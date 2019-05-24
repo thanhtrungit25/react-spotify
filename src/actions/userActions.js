@@ -1,17 +1,17 @@
-export const getUserSuccess = user => {
+export const fetchUserSuccess = user => {
   return {
-    type: 'GET_USER_SUCCESS',
+    type: 'FETCH_USER_SUCCESS',
     user
   };
 };
 
-export const getUserError = user => {
+export const fetchUserError = user => {
   return {
-    type: 'GET_USER_ERROR'
+    type: 'FETCH_USER_ERROR'
   };
 };
 
-export const getUser = accessToken => {
+export const fetchUser = accessToken => {
   return dispatch => {
     const request = new Request('https://api.spotify.com/v1/me', {
       headers: new Headers({
@@ -25,10 +25,10 @@ export const getUser = accessToken => {
       })
       .then(user => {
         console.log(user);
-        dispatch(getUserSuccess(user));
+        dispatch(fetchUserSuccess(user));
       })
       .catch(err => {
-        dispatch(getUserError());
+        dispatch(fetchUserError());
       });
   };
 };

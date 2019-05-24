@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { getUser } from './actions/userActions';
+import { fetchUser } from './actions/userActions';
 import { setToken } from './actions/tokenActions';
 import './App.css';
 
 import UserDetails from './components/UserDetails';
+import UserPlaylists from './components/UserPlaylists';
+import UserSongs from './components/UserSongs';
 
 class App extends Component {
   componentDidMount() {
@@ -16,26 +18,39 @@ class App extends Component {
       r = /([^&;=]+)=?([^&;]*)/g,
       q = window.location.hash.substring(1);
 
-    e = r.exec(q);
-    hashParams[e[1]] = decodeURIComponent(e[2]);
+    while ((e = r.exec(q))) {
+      hashParams[e[1]] = decodeURIComponent(e[2]);
+    }
 
     if (!hashParams.access_token) {
+      // scope
+      // user-read-private // user-read-email // playlist-read-private // user-library-read // user-library-modify // user-follow-read
       window.location.href =
-        'https://accounts.spotify.com/authorize?client_id=230be2f46909426b8b80cac36446b52a&response_type=token&redirect_uri=http://localhost:3000/callback';
+        'https://accounts.spotify.com/authorize?client_id=06f0c98364d948048c214c9e3ac2fc12&scope=user-read-private%20user-read-email%20playlist-read-private%20user-library-read%20user-library-modify%20user-follow-read&response_type=token&redirect_uri=http://localhost:3000/callback';
     } else {
       this.props.setToken(hashParams.access_token);
     }
   }
 
   showProfile = () => {
-    this.props.getUser(this.props.token);
+    this.props.fetchUser(this.props.token);
   };
 
   render() {
     return (
       <div className="App">
         <p onClick={this.showProfile}>Click here to load profile</p>
-        <UserDetails />
+        <div className="header">
+          <UserDetails />
+        </div>
+        <div className="app-container">
+          <div className="left-side-section">
+            <UserPlaylists />
+          </div>
+          <div className="main-section">
+            <UserSongs />
+          </div>
+        </div>
       </div>
     );
   }
@@ -50,7 +65,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      getUser,
+      fetchUser,
       setToken
     },
     dispatch
