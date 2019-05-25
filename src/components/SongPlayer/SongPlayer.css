@@ -15,13 +15,28 @@
 
 .song-progress-container {
   margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.timer-start {
+  font-size: 12px;
+  position: relative;
+  top: -5px;
+  left: -5px;
+}
+
+.timer-end {
+  font-size: 12px;
+  position: relative;
+  top: -5px;
+  left: 5px;
 }
 
 .song-progress {
   width: 500px;
   height: 4px;
   background: #aaa;
-  margin: 0 auto;
   border-radius: 4px;
 }
 

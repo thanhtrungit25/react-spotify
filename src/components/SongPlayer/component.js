@@ -2,7 +2,43 @@ import React, { Component } from 'react';
 import './SongPlayer.css';
 
 class SongPlayer extends Component {
+  state = {
+    timeElapsed: 0
+  };
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.songPlaying) {
+      this.calculateTime();
+    }
+  }
+
+  calculateTime() {
+    const intervalId = setInterval(() => {
+      if (this.state.timeElapsed === 30) {
+        clearInterval(this.state.intervalId);
+        this.props.stopSong();
+        this.setState({
+          timeElapsed: 0
+        });
+      } else {
+        this.setState(prevState => {
+          return {
+            timeElapsed: prevState.timeElapsed + 1
+          };
+        });
+      }
+    }, 1000);
+
+    this.setState({
+      intervalId
+    });
+  }
+
   render() {
+    const showPlay = !this.props.songPlaying
+      ? ' fa-play-circle-o '
+      : ' fa-pause-circle-o ';
+
     return (
       <div className="song-player-container">
         <div className="song-details">
@@ -16,7 +52,7 @@ class SongPlayer extends Component {
           </div>
 
           <div className="play-btn">
-            <i className="fa fa-play-circle-o play-btn" aria-hidden="true" />
+            <i className={'fa play-btn' + showPlay} aria-hidden="true" />
           </div>
 
           <div className="next-song">
@@ -25,9 +61,14 @@ class SongPlayer extends Component {
         </div>
 
         <div className="song-progress-container">
+          <p className="timer-start">{this.state.timeElapsed}</p>
           <div className="song-progress">
-            <div className="song-expired" />
+            <div
+              style={{ width: this.state.timeElapsed * 16.5 }}
+              className="song-expired"
+            />
           </div>
+          <p className="timer-end">{30 - this.state.timeElapsed}</p>
         </div>
       </div>
     );

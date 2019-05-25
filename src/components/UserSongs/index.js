@@ -8,7 +8,8 @@ const mapStateToProps = state => {
     token: state.tokenReducer.token ? state.tokenReducer.token : '',
     songs: state.songsReducer.songs ? state.songsReducer.songs : '',
     fetchSongsPending: state.songsReducer.fetchSongsPending,
-    fetchSongsError: state.songsReducer.fetchSongsError
+    fetchSongsError: state.songsReducer.fetchSongsError,
+    songPlaying: state.songsReducer.songPlaying
   };
 };
 
