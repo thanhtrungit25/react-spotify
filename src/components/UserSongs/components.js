@@ -23,6 +23,7 @@ class UserSongs extends React.Component {
     return this.props.songs.map(song => {
       const playSong = () => {
         if (song.track.preview_url) {
+          this.props.playSong(song.track);
           const audio = new Audio(song.track.preview_url);
           audio.play();
         }

@@ -5,6 +5,11 @@ class SongPlayer extends Component {
   render() {
     return (
       <div className="song-player-container">
+        <div className="song-details">
+          <p className="song-name">{this.props.songName}</p>
+          <p className="artist-name">{this.props.artistName}</p>
+        </div>
+
         <div className="song-controls">
           <div className="reverse-song">
             <i className="fa fa-step-backward reverse" aria-hidden="true" />

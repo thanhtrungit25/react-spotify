@@ -7,6 +7,7 @@ import './App.css';
 
 import UserDetails from './components/UserDetails';
 import UserPlaylists from './components/UserPlaylists';
+import ArtWork from './components/ArtWork';
 import UserSongs from './components/UserSongs';
 import SongPlayer from './components/SongPlayer';
 
@@ -45,6 +46,7 @@ class App extends Component {
         <div className="app-container">
           <div className="left-side-section">
             <UserPlaylists />
+            <ArtWork />
           </div>
 
           <div className="main-section">
