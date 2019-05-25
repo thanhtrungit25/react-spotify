@@ -79,7 +79,9 @@ class UserSongs extends React.Component {
           </div>
 
           <div className="song-added-header">
-            <i className="fa fa-calendar-plus-o" aria-hidden="true" />
+            <p>
+              <i className="fa fa-calendar-plus-o" aria-hidden="true" />
+            </p>
           </div>
 
           <div className="song-length-header">
