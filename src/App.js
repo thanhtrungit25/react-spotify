@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchUser } from './actions/userActions';
 import { setToken } from './actions/tokenActions';
+import { playSong, stopSong } from './actions/songActions';
 import './App.css';
 
 import UserDetails from './components/UserDetails';
@@ -13,6 +14,8 @@ import UserSongs from './components/UserSongs';
 import SongControls from './components/SongControls';
 
 class App extends Component {
+  static audio;
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.token) {
       this.props.fetchUser(nextProps.token);
@@ -41,6 +44,25 @@ class App extends Component {
     }
   }
 
+  stopSong = () => {
+    this.props.stopSong();
+    this.audio.pause();
+  };
+
+  audioControl = song => {
+    if (this.audio === undefined) {
+      this.props.playSong(song.track);
+      this.audio = new Audio(song.track.preview_url);
+      this.audio.play();
+    } else {
+      this.audio.pause();
+      this.props.stopSong();
+      this.props.playSong(song.track);
+      this.audio = new Audio(song.track.preview_url);
+      this.audio.play();
+    }
+  };
+
   render() {
     return (
       <div className="App">
@@ -55,11 +77,14 @@ class App extends Component {
             <div className="header">
               <UserDetails />
             </div>
-            <UserSongs />
+            <UserSongs
+              audioControl={this.audioControl}
+              stopSong={this.stopSong}
+            />
           </div>
 
           <div className="footer">
-            <SongControls />
+            <SongControls stopSong={this.stopSong} />
           </div>
         </div>
       </div>
@@ -77,7 +102,9 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
       fetchUser,
-      setToken
+      setToken,
+      playSong,
+      stopSong
     },
     dispatch
   );

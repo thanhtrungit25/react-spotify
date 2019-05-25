@@ -38,6 +38,10 @@
   background: #202020;
 }
 
+.active.user-song-item {
+  color: #1db954;
+}
+
 .user-song-item > .play-song {
   opacity: 1;
 }

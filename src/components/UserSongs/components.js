@@ -3,8 +3,6 @@ import moment from 'moment';
 import './UserSongs.css';
 
 class UserSongs extends React.Component {
-  static audio;
-
   componentWillReceiveProps(nextProps) {
     if (
       nextProps.token !== '' &&
@@ -23,22 +21,16 @@ class UserSongs extends React.Component {
 
   renderSongs() {
     return this.props.songs.map(song => {
-      const playSong = () => {
-        if (this.audio === undefined) {
-          this.props.playSong(song.track);
-          this.audio = new Audio(song.track.preview_url);
-          this.audio.play();
-        } else {
-          this.audio.pause();
-          this.props.stopSong();
-          this.props.playSong(song.track);
-          this.audio = new Audio(song.track.preview_url);
-          this.audio.play();
-        }
-      };
-
       return (
-        <li onClick={playSong} className="user-song-item" key={song.track.id}>
+        <li
+          onClick={() => this.props.audioControl(song)}
+          className={
+            song.track.id === this.props.songId
+              ? 'active user-song-item'
+              : 'user-song-item'
+          }
+          key={song.track.id}
+        >
           <div className="play-song">
             <i className="fa fa-play-circle-o play-btn" aria-hidden="true" />
           </div>

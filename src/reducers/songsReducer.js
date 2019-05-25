@@ -2,7 +2,8 @@ export const songsReducer = (
   state = {
     fetchSongsPending: true,
     songPlaying: false,
-    timeElapsed: 0
+    timeElapsed: 0,
+    songId: 0
   },
   action
 ) => {
@@ -67,7 +68,8 @@ export const songsReducer = (
         ...state,
         songPlaying: true,
         songDetails: action.song,
-        timeElapsed: 0
+        timeElapsed: 0,
+        songId: action.song.id
       };
     case 'STOP_SONG':
       return {
