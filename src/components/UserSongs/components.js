@@ -57,13 +57,7 @@ class UserSongs extends React.Component {
 
   render() {
     return (
-      <div className="user-songs-container">
-        <h2 className="section-title">Songs</h2>
-
-        <button onClick={this.props.stopSong} className="main-pause-play-btn">
-          {!this.props.songPlaying ? 'PLAY' : 'PAUSE'}
-        </button>
-
+      <div>
         <div className="song-header-container">
           <div className="song-title-header">
             <p>Title</p>
@@ -89,7 +83,6 @@ class UserSongs extends React.Component {
             </p>
           </div>
         </div>
-
         {this.props.songs && this.renderSongs()}
       </div>
     );

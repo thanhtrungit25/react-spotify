@@ -10,6 +10,7 @@ import UserDetails from './components/UserDetails';
 import SideMenu from './components/SideMenu';
 import UserPlaylists from './components/UserPlaylists';
 import ArtWork from './components/ArtWork';
+import MainHeader from './components/MainHeader';
 import UserSongs from './components/UserSongs';
 import SongControls from './components/SongControls';
 
@@ -77,10 +78,13 @@ class App extends Component {
             <div className="header">
               <UserDetails />
             </div>
-            <UserSongs
-              audioControl={this.audioControl}
-              stopSong={this.stopSong}
-            />
+            <div className="user-songs-container">
+              <MainHeader pauseSong={this.stopSong} />
+              <UserSongs
+                audioControl={this.audioControl}
+                stopSong={this.stopSong}
+              />
+            </div>
           </div>
 
           <div className="footer">
