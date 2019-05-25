@@ -3,7 +3,12 @@ import './UserSongs.css';
 
 class UserSongs extends React.Component {
   componentWillReceiveProps(nextProps) {
-    if (nextProps.token !== '' && nextProps.songs === '') {
+    if (
+      nextProps.token !== '' &&
+      nextProps.fetchSongsPending &&
+      !nextProps.fetchSongsError
+    ) {
+      console.log('componentWillReceiveProps');
       this.props.fetchSongs(nextProps.token);
     }
   }

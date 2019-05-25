@@ -1,4 +1,9 @@
-export const songsReducer = (state = {}, action) => {
+export const songsReducer = (
+  state = {
+    fetchSongsPending: true
+  },
+  action
+) => {
   switch (action.type) {
     case 'FETCH_SONGS_PENDING':
       return {
