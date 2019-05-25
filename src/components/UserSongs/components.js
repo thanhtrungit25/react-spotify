@@ -68,7 +68,7 @@ class UserSongs extends React.Component {
       <div className="user-songs-container">
         <h2 className="section-title">Songs</h2>
 
-        <button className="main-pause-play-btn">
+        <button onClick={this.props.stopSong} className="main-pause-play-btn">
           {!this.props.songPlaying ? 'PLAY' : 'PAUSE'}
         </button>
 

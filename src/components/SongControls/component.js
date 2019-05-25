@@ -7,6 +7,10 @@ class SongControls extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
+    if (!nextProps.songPlaying) {
+      clearInterval(this.state.intervalId);
+    }
+
     if (nextProps.songPlaying && nextProps.timeElapsed === 0) {
       clearInterval(this.state.intervalId);
       this.calculateTime();
@@ -50,7 +54,11 @@ class SongControls extends Component {
           </div>
 
           <div className="play-btn">
-            <i className={'fa play-btn' + showPlay} aria-hidden="true" />
+            <i
+              onClick={this.props.songPlaying ? this.props.stopSong : null}
+              className={'fa play-btn' + showPlay}
+              aria-hidden="true"
+            />
           </div>
 
           <div className="next-song">
