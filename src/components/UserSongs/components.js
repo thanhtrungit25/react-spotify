@@ -3,13 +3,14 @@ import moment from 'moment';
 import './UserSongs.css';
 
 class UserSongs extends React.Component {
+  static audio;
+
   componentWillReceiveProps(nextProps) {
     if (
       nextProps.token !== '' &&
       nextProps.fetchSongsPending &&
       !nextProps.fetchSongsError
     ) {
-      console.log('componentWillReceiveProps');
       this.props.fetchSongs(nextProps.token);
     }
   }
@@ -23,10 +24,15 @@ class UserSongs extends React.Component {
   renderSongs() {
     return this.props.songs.map(song => {
       const playSong = () => {
-        if (song.track.preview_url) {
+        if (this.audio === undefined) {
           this.props.playSong(song.track);
-          const audio = new Audio(song.track.preview_url);
-          audio.play();
+          this.audio = new Audio(song.track.preview_url);
+          this.audio.play();
+        } else {
+          this.audio.pause();
+          this.props.playSong(song.track);
+          this.audio = new Audio(song.track.preview_url);
+          this.audio.play();
         }
       };
 
