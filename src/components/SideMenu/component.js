@@ -38,7 +38,12 @@ class SideMenu extends React.Component {
   }
 
   render() {
-    return <ul className="side-menu-container">{this.renderSideMenu()}</ul>;
+    return (
+      <ul className="side-menu-container">
+        <h3 className="user-library-header">Your Library</h3>
+        {this.renderSideMenu()}
+      </ul>
+    );
   }
 }
 

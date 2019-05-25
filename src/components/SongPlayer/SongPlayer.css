@@ -37,14 +37,14 @@
   font-size: 12px;
   position: relative;
   top: -5px;
-  left: -5px;
+  left: -10px;
 }
 
 .timer-end {
   font-size: 12px;
   position: relative;
   top: -5px;
-  left: 5px;
+  left: 10px;
 }
 
 .song-progress {
