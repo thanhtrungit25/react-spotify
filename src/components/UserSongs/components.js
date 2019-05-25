@@ -30,6 +30,7 @@ class UserSongs extends React.Component {
           this.audio.play();
         } else {
           this.audio.pause();
+          this.props.stopSong();
           this.props.playSong(song.track);
           this.audio = new Audio(song.track.preview_url);
           this.audio.play();

@@ -10,7 +10,7 @@ import SideMenu from './components/SideMenu';
 import UserPlaylists from './components/UserPlaylists';
 import ArtWork from './components/ArtWork';
 import UserSongs from './components/UserSongs';
-import SongPlayer from './components/SongPlayer';
+import SongControls from './components/SongControls';
 
 class App extends Component {
   componentWillReceiveProps(nextProps) {
@@ -59,7 +59,7 @@ class App extends Component {
           </div>
 
           <div className="footer">
-            <SongPlayer />
+            <SongControls />
           </div>
         </div>
       </div>

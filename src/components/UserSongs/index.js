@@ -1,7 +1,7 @@
 import UserSongs from './components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchSongs, playSong } from '../../actions/songActions';
+import { fetchSongs, playSong, stopSong } from '../../actions/songActions';
 
 const mapStateToProps = state => {
   return {
@@ -17,7 +17,8 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
       fetchSongs,
-      playSong
+      playSong,
+      stopSong
     },
     dispatch
   );

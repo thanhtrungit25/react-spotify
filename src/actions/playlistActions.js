@@ -5,6 +5,12 @@ export const fetchPlaylistSuccess = playlists => {
   };
 };
 
+export const fetchPlaylistPending = () => {
+  return {
+    type: 'FETCH_PLAYLIST_PENDING'
+  };
+};
+
 export const fetchPlaylistError = () => {
   return {
     type: 'FETCH_PLAYLIST_ERROR'
@@ -21,6 +27,8 @@ export const fetchPlaylists = (userId, accessToken) => {
         })
       }
     );
+
+    dispatch(fetchPlaylistPending());
 
     fetch(request)
       .then(res => {

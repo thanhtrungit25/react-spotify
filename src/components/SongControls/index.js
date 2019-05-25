@@ -1,7 +1,11 @@
-import SongPlayer from './component';
+import SongControls from './component';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { playSong, stopSong } from '../../actions/songActions';
+import {
+  playSong,
+  stopSong,
+  increaseSongTime
+} from '../../actions/songActions';
 
 const mapStateToProps = state => {
   return {
@@ -11,7 +15,8 @@ const mapStateToProps = state => {
     artistName: state.songsReducer.songDetails
       ? state.songsReducer.songDetails.artists[0].name
       : '',
-    songPlaying: state.songsReducer.songPlaying
+    songPlaying: state.songsReducer.songPlaying,
+    timeElapsed: state.songsReducer.timeElapsed
   };
 };
 
@@ -19,7 +24,8 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
       playSong,
-      stopSong
+      stopSong,
+      increaseSongTime
     },
     dispatch
   );
@@ -28,4 +34,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SongPlayer);
+)(SongControls);
