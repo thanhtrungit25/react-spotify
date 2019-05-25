@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import './UserSongs.css';
 
 class UserSongs extends React.Component {
@@ -44,6 +45,9 @@ class UserSongs extends React.Component {
           <div className="song-album">
             <p>{song.track.album.name}</p>
           </div>
+          <div className="song-added">
+            <p>{moment(song.added_at).format('YYYY-MM-DD')}</p>
+          </div>
           <div className="song-length">
             <p>{this.msToMinutesAndSeconds(song.track.duration_ms)}</p>
           </div>
@@ -57,7 +61,9 @@ class UserSongs extends React.Component {
       <div className="user-songs-container">
         <h2 className="section-title">Songs</h2>
 
-        <button className="main-pause-play-btn">PLAY</button>
+        <button className="main-pause-play-btn">
+          {!this.props.songPlaying ? 'PLAY' : 'PAUSE'}
+        </button>
 
         <div className="song-header-container">
           <div className="song-title-header">
@@ -70,6 +76,10 @@ class UserSongs extends React.Component {
 
           <div className="song-album-header">
             <p>Album</p>
+          </div>
+
+          <div className="song-added-header">
+            <i className="fa fa-calendar-plus-o" aria-hidden="true" />
           </div>
 
           <div className="song-length-header">

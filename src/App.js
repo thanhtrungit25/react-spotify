@@ -6,6 +6,7 @@ import { setToken } from './actions/tokenActions';
 import './App.css';
 
 import UserDetails from './components/UserDetails';
+import SideMenu from './components/SideMenu';
 import UserPlaylists from './components/UserPlaylists';
 import ArtWork from './components/ArtWork';
 import UserSongs from './components/UserSongs';
@@ -34,7 +35,7 @@ class App extends Component {
       // scope
       // user-read-private // user-read-email // playlist-read-private // user-library-read // user-library-modify // user-follow-read
       window.location.href =
-        'https://accounts.spotify.com/authorize?client_id=06f0c98364d948048c214c9e3ac2fc12&scope=user-read-private%20user-read-email%20user-top-read%20user-read-playback-state%20user-library-read%20user-library-modify%20user-follow-read%20playlist-read-private%20playlist-read-collaborative%20playlist-modify-public%20playlist-modify-private%20user-follow-read%20user-library-read%20user-library-modify&response_type=token&redirect_uri=http://localhost:3000/callback';
+        'https://accounts.spotify.com/authorize?client_id=06f0c98364d948048c214c9e3ac2fc12&scope=user-read-private%20user-read-email%20user-top-read%20user-read-recently-played%20user-read-playback-state%20user-library-read%20user-library-modify%20user-follow-read%20playlist-read-private%20playlist-read-collaborative%20playlist-modify-public%20playlist-modify-private%20user-follow-read%20user-library-read%20user-library-modify&response_type=token&redirect_uri=http://localhost:3000/callback';
     } else {
       this.props.setToken(hashParams.access_token);
     }
@@ -45,6 +46,7 @@ class App extends Component {
       <div className="App">
         <div className="app-container">
           <div className="left-side-section">
+            <SideMenu />
             <UserPlaylists />
             <ArtWork />
           </div>

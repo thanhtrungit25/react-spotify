@@ -24,6 +24,25 @@ export const songsReducer = (
         fetchSongsError: true,
         fetchSongsPending: false
       };
+    case 'FETCH_RECENTLY_PLAYED_PENDING':
+      return {
+        ...state,
+        fetchRecentlyPlayedPending: true
+      };
+    case 'FETCH_RECENTLY_PLAYED_SUCCESS':
+      return {
+        ...state,
+        songs: action.songs,
+        fetchRecentlyPlayedPending: false,
+        fetchRecentlyPlayedError: false
+      };
+    case 'FETCH_RECENTLY_PLAYED_ERROR':
+      return {
+        ...state,
+        fetchRecentlyPlayedPending: false,
+        fetchRecentlyPlayedError: true
+      };
+
     case 'FETCH_PLAYLIST_SONGS_PENDING':
       return {
         ...state,
@@ -51,8 +70,8 @@ export const songsReducer = (
     case 'STOP_SONG':
       return {
         ...state,
-        songPlaying: false,
-        songDetails: null
+        songPlaying: false
+        // songDetails: null
       };
     default:
       return state;

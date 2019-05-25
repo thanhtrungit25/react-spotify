@@ -67,6 +67,15 @@
   width: 250px;
 }
 
+.song-added {
+  width: 80px;
+}
+
+.song-added-header {
+  width: 80px;
+  color: #ccc;
+}
+
 .song-title-header {
   margin-left: 40px;
 }
@@ -84,7 +93,7 @@
 
 .song-length-header .fa.fa-clock-o {
   font-size: 15px;
-  color: #eee;
+  color: #ccc;
 }
 
 .song-header-container {
