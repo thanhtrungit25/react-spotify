@@ -21,8 +21,15 @@ class UserSongs extends React.Component {
 
   renderSongs() {
     return this.props.songs.map(song => {
+      const playSong = () => {
+        if (song.track.preview_url) {
+          const audio = new Audio(song.track.preview_url);
+          audio.play();
+        }
+      };
+
       return (
-        <li className="user-song-item" key={song.track.id}>
+        <li onClick={playSong} className="user-song-item" key={song.track.id}>
           <div className="play-song">
             <i className="fa fa-play-circle-o play-btn" aria-hidden="true" />
           </div>
@@ -48,6 +55,8 @@ class UserSongs extends React.Component {
     return (
       <div className="user-songs-container">
         <h2 className="section-title">Songs</h2>
+
+        <button className="main-pause-play-btn">PLAY</button>
 
         <div className="song-header-container">
           <div className="song-title-header">

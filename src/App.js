@@ -8,6 +8,7 @@ import './App.css';
 import UserDetails from './components/UserDetails';
 import UserPlaylists from './components/UserPlaylists';
 import UserSongs from './components/UserSongs';
+import SongPlayer from './components/SongPlayer';
 
 class App extends Component {
   componentWillReceiveProps(nextProps) {
@@ -32,7 +33,7 @@ class App extends Component {
       // scope
       // user-read-private // user-read-email // playlist-read-private // user-library-read // user-library-modify // user-follow-read
       window.location.href =
-        'https://accounts.spotify.com/authorize?client_id=06f0c98364d948048c214c9e3ac2fc12&scope=user-read-private%20user-read-email%20playlist-read-private%20user-library-read%20user-library-modify%20user-follow-read&response_type=token&redirect_uri=http://localhost:3000/callback';
+        'https://accounts.spotify.com/authorize?client_id=06f0c98364d948048c214c9e3ac2fc12&scope=user-read-private%20user-read-email%20user-top-read%20user-read-playback-state%20user-library-read%20user-library-modify%20user-follow-read%20playlist-read-private%20playlist-read-collaborative%20playlist-modify-public%20playlist-modify-private%20user-follow-read%20user-library-read%20user-library-modify&response_type=token&redirect_uri=http://localhost:3000/callback';
     } else {
       this.props.setToken(hashParams.access_token);
     }
@@ -51,6 +52,10 @@ class App extends Component {
               <UserDetails />
             </div>
             <UserSongs />
+          </div>
+
+          <div className="footer">
+            <SongPlayer />
           </div>
         </div>
       </div>
