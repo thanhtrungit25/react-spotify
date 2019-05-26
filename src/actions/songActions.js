@@ -1,3 +1,5 @@
+import { uniqBy } from 'lodash';
+
 export const fetchSongsPending = () => {
   return {
     type: 'FETCH_SONGS_PENDING'
@@ -80,6 +82,10 @@ export const fetchRecentlyPlayed = accessToken => {
         return res.json();
       })
       .then(res => {
+        //remove duplicates from recently played
+        res.items = uniqBy(res.items, item => {
+          return item.track.id;
+        });
         dispatch(fetchRecentlyPlayedSuccess(res.items));
       })
       .catch(err => {
