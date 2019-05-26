@@ -35,6 +35,27 @@ class SongList extends React.Component {
             <i className="fa fa-play-circle-o play-btn" aria-hidden="true" />
           </div>
 
+          {this.props.viewType !== 'songs' && (
+            <p
+              className="add-song"
+              onClick={() =>
+                this.props.addSongToLibrary(this.props.token, song.track.id)
+              }
+            >
+              {song.track.id === this.props.songAddedId ? (
+                <i className="fa fa-check" aria-hidden="true" />
+              ) : (
+                <i className="fa fa-plus" aria-hidden="true" />
+              )}
+            </p>
+          )}
+
+          {this.props.viewType === 'songs' && (
+            <p className="add-song">
+              <i className="fa fa-check" aria-hidden="true" />
+            </p>
+          )}
+
           <div className="song-title">
             <p>{song.track.name}</p>
           </div>

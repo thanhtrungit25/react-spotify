@@ -8,8 +8,19 @@ export const userReducer = (state = {}, action) => {
       };
     case 'FETCH_USER_ERROR':
       return {
-        fetchUserError: true,
-        ...state
+        ...state,
+        fetchUserError: true
+      };
+    case 'ADD_SONG_TO_LIBRARY_SUCCESS':
+      return {
+        ...state,
+        songAddedToLibrary: true,
+        songId: action.songId
+      };
+    case 'ADD_SONG_TO_LIBRARY_ERROR':
+      return {
+        ...state,
+        songAddedToLibrary: false
       };
     default:
       return state;

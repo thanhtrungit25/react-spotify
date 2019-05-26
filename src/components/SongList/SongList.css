@@ -91,7 +91,7 @@
 }
 
 .song-title-header {
-  margin-left: 30px;
+  margin-left: 50px;
 }
 
 .song-title-header p,
@@ -121,4 +121,19 @@
   display: flex;
   border-bottom: 1px solid #666;
   padding-bottom: 6px;
+}
+
+.add-song {
+  font-size: 20px;
+  cursor: pointer;
+  /* z-index: 1; */
+  width: 20px;
+}
+
+.add-song .fa {
+  -webkit-text-stroke: 4px rgb(24, 24, 24);
+}
+
+.add-song .fa:hover {
+  -webkit-text-stroke: 3px rgb(24, 24, 24);
 }
