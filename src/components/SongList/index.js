@@ -1,4 +1,4 @@
-import UserSongs from './components';
+import SongList from './component';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchSongs, playSong, stopSong } from '../../actions/songActions';
@@ -28,4 +28,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UserSongs);
+)(SongList);

@@ -5,11 +5,13 @@ class ArtWork extends Component {
   render() {
     return (
       <div className="album-artwork-container">
-        <img
-          className="album-artwork"
-          src={this.props.albumArtwork}
-          alt="altwork"
-        />
+        {this.props.albumArtwork && (
+          <img
+            className="album-artwork"
+            src={this.props.albumArtwork}
+            alt="altwork"
+          />
+        )}
       </div>
     );
   }
