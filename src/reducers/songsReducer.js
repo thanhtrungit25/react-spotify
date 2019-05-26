@@ -86,6 +86,11 @@ export const songsReducer = (
         ...state,
         timeElapsed: action.time
       };
+    case 'UPDATE_VIEW_TYPE':
+      return {
+        ...state,
+        viewType: action.view
+      };
     default:
       return state;
   }

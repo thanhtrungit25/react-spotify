@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchAlbums } from '../../actions/albumActions';
 import { fetchArtists } from '../../actions/artistActions';
-import { fetchSongs, fetchRecentlyPlayed } from '../../actions/songActions';
+import {
+  fetchSongs,
+  fetchRecentlyPlayed,
+  updateViewType
+} from '../../actions/songActions';
+import { updateHeaderTitle } from '../../actions/uiActions';
 
 const mapStateToProps = state => {
   return {
@@ -18,7 +23,9 @@ const mapDispatchToProps = dispatch => {
       fetchSongs,
       fetchRecentlyPlayed,
       fetchAlbums,
-      fetchArtists
+      fetchArtists,
+      updateViewType,
+      updateHeaderTitle
     },
     dispatch
   );

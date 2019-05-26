@@ -107,3 +107,10 @@ export const increaseSongTime = time => {
     time
   };
 };
+
+export const updateViewType = view => {
+  return {
+    type: 'UPDATE_VIEW_TYPE',
+    view
+  };
+};

@@ -1,24 +1,37 @@
 import React from 'react';
 import './SideMenu.css';
 
-class SideMenu extends React.Component {
-  renderSideMenu() {
+const SideMenu = ({
+  fetchRecentlyPlayed,
+  fetchSongs,
+  fetchAlbums,
+  fetchArtists,
+  updateHeaderTitle,
+  updateViewType,
+  token
+}) => {
+  const menuItemClicked = name => {
+    updateHeaderTitle(name);
+    updateViewType(name);
+  };
+
+  const renderSideMenu = () => {
     const menu = [
       {
         name: 'Recently Played',
-        action: this.props.fetchRecentlyPlayed
+        action: fetchRecentlyPlayed
       },
       {
         name: 'Songs',
-        action: this.props.fetchSongs
+        action: fetchSongs
       },
       {
         name: 'Albums',
-        action: this.props.fetchAlbums
+        action: fetchAlbums
       },
       {
         name: 'Artists',
-        action: this.props.fetchArtists
+        action: fetchArtists
       }
     ];
 
@@ -27,7 +40,8 @@ class SideMenu extends React.Component {
         <li
           key={item.name}
           onClick={() => {
-            item.action(this.props.token);
+            item.action(token);
+            menuItemClicked(item.name);
           }}
           className="side-menu-item"
         >
@@ -35,16 +49,13 @@ class SideMenu extends React.Component {
         </li>
       );
     });
-  }
-
-  render() {
-    return (
-      <ul className="side-menu-container">
-        <h3 className="user-library-header">Your Library</h3>
-        {this.renderSideMenu()}
-      </ul>
-    );
-  }
-}
+  };
+  return (
+    <ul className="side-menu-container">
+      <h3 className="user-library-header">Your Library</h3>
+      {renderSideMenu()}
+    </ul>
+  );
+};
 
 export default SideMenu;

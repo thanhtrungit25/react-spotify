@@ -14,8 +14,6 @@ const MainHeader = ({
     currentPlaylist = playplists.filter(playlist => {
       return playlist.name === headerTitle;
     })[0];
-
-    console.log(currentPlaylist);
   }
 
   return (
@@ -26,7 +24,11 @@ const MainHeader = ({
             <div className="playlist-image-container">
               <img
                 className="playlist-image"
-                src={currentPlaylist.images[0].url}
+                src={
+                  currentPlaylist.images[0]
+                    ? currentPlaylist.images[0].url
+                    : null
+                }
                 alt="playlist"
               />
             </div>
@@ -48,7 +50,7 @@ const MainHeader = ({
           </div>
         )}
 
-        {viewType === 'songs' && (
+        {(viewType === 'songs' || headerTitle === 'Recently Played') && (
           <div>
             <h3 className="header-title">{headerTitle}</h3>
             <button onClick={pauseSong} className="main-pause-play-btn">

@@ -16,7 +16,7 @@ class UserPlaylists extends React.Component {
     return this.props.playlists.map(playlist => {
       const getPlaylistSongs = () => {
         this.props.fetchPlaylistSongs(
-          this.props.userId,
+          playlist.owner.id,
           playlist.id,
           this.props.token
         );
