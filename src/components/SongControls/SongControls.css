@@ -8,7 +8,7 @@
 .reverse,
 .play-btn {
   padding: 0 5px;
-  color: #bbb;
+  color: rgb(179, 179, 179);
   cursor: pointer;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .play-btn .fa {
-  -webkit-text-stroke: 2px #222;
+  -webkit-text-stroke: 2px rgb(40, 40, 40);
 }
 
 .song-progress-container {
@@ -50,7 +50,7 @@
 .song-progress {
   width: 500px;
   height: 4px;
-  background: #aaa;
+  background: rgb(64, 64, 64);;
   border-radius: 4px;
 }
 
