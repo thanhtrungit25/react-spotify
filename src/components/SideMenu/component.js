@@ -8,7 +8,8 @@ const SideMenu = ({
   fetchArtists,
   updateHeaderTitle,
   updateViewType,
-  token
+  token,
+  artistIds
 }) => {
   const menuItemClicked = name => {
     updateHeaderTitle(name);
@@ -31,7 +32,8 @@ const SideMenu = ({
       },
       {
         name: 'Artists',
-        action: fetchArtists
+        action: fetchArtists,
+        getArtists: true
       }
     ];
 
@@ -40,7 +42,9 @@ const SideMenu = ({
         <li
           key={item.name}
           onClick={() => {
-            item.action(token);
+            item.getArtists
+              ? item.action(token, artistIds)
+              : item.action(token);
             menuItemClicked(item.name);
           }}
           className="side-menu-item"

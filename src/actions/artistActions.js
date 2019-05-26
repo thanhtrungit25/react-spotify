@@ -18,10 +18,10 @@ export const fetchArtistsError = () => {
   };
 };
 
-export const fetchArtists = accessToken => {
+export const fetchArtists = (accessToken, artistIds) => {
   return dispatch => {
     const request = new Request(
-      `https://api.spotify.com/v1/me/following?type=artist`,
+      `https://api.spotify.com/v1/artists?ids=${artistIds}`,
       {
         headers: new Headers({
           Authorization: 'Bearer ' + accessToken
@@ -36,10 +36,17 @@ export const fetchArtists = accessToken => {
         return res.json();
       })
       .then(res => {
-        dispatch(fetchArtistsSuccess(res));
+        dispatch(fetchArtistsSuccess(res.artists));
       })
       .catch(err => {
         dispatch(fetchArtistsError());
       });
+  };
+};
+
+export const setArtistIds = artistIds => {
+  return {
+    type: 'SET_ARTIST_IDS',
+    artistIds
   };
 };
