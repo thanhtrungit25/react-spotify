@@ -11,11 +11,17 @@ class AlbumList extends Component {
           key={i}
         >
           <div>
-            <div className="album-image">
-              {song.track.album.images && (
+            {song.track.album.images && (
+              <div className="album-image">
                 <img src={song.track.album.images[0].url} alt="album" />
-              )}
-            </div>
+                <div className="play-song">
+                  <i
+                    className="fa fa-play-circle-o play-btn"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            )}
             <div className="album-details">
               <p>{song.track.album.name}</p>
               <p>{song.track.album.artists[0].name}</p>
