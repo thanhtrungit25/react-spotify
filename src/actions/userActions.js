@@ -24,7 +24,6 @@ export const fetchUser = accessToken => {
         return res.json();
       })
       .then(user => {
-        console.log(user);
         dispatch(fetchUserSuccess(user));
       })
       .catch(err => {

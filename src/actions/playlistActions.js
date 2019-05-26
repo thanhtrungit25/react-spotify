@@ -35,7 +35,6 @@ export const fetchPlaylists = (userId, accessToken) => {
         return res.json();
       })
       .then(playlist => {
-        console.log(playlist);
         dispatch(fetchPlaylistSuccess(playlist.items));
       })
       .catch(err => {

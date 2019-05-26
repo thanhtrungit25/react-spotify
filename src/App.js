@@ -24,7 +24,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
     var hashParams = {};
 
     var e,
