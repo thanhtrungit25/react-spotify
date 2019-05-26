@@ -4,7 +4,8 @@ export const songsReducer = (
     songPlaying: false,
     timeElapsed: 0,
     songId: 0,
-    viewType: 'songs'
+    viewType: 'songs',
+    songPaused: true
   },
   action
 ) => {
@@ -72,14 +73,26 @@ export const songsReducer = (
         songPlaying: true,
         songDetails: action.song,
         timeElapsed: 0,
-        songId: action.song.id
+        songId: action.song.id,
+        songPaused: false
       };
     case 'STOP_SONG':
       return {
         ...state,
         songPlaying: false,
         songDetails: null,
-        timeElapsed: 0
+        timeElapsed: 0,
+        songPaused: true
+      };
+    case 'PAUSE_SONG':
+      return {
+        ...state,
+        songPaused: true
+      };
+    case 'RESUME_SONG':
+      return {
+        ...state,
+        songPaused: false
       };
     case 'INCREASE_SONG_TIME':
       return {

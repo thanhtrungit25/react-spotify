@@ -3,7 +3,12 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchUser } from './actions/userActions';
 import { setToken } from './actions/tokenActions';
-import { playSong, stopSong } from './actions/songActions';
+import {
+  playSong,
+  pauseSong,
+  resumeSong,
+  stopSong
+} from './actions/songActions';
 import './App.css';
 
 import UserDetails from './components/UserDetails';
@@ -44,6 +49,16 @@ class App extends Component {
     }
   }
 
+  pauseSong = () => {
+    this.props.pauseSong();
+    this.audio.pause();
+  };
+
+  resumeSong = () => {
+    this.props.resumeSong();
+    this.audio.play();
+  };
+
   stopSong = () => {
     this.props.stopSong();
     this.audio.pause();
@@ -78,7 +93,10 @@ class App extends Component {
               <UserDetails />
             </div>
             <div className="user-songs-container">
-              <MainHeader pauseSong={this.stopSong} />
+              <MainHeader
+                pauseSong={this.pauseSong}
+                resumeSong={this.resumeSong}
+              />
               <UserSongs
                 audioControl={this.audioControl}
                 stopSong={this.stopSong}
@@ -87,7 +105,11 @@ class App extends Component {
           </div>
 
           <div className="footer">
-            <SongControls stopSong={this.stopSong} />
+            <SongControls
+              pauseSong={this.pauseSong}
+              resumeSong={this.resumeSong}
+              stopSong={this.stopSong}
+            />
           </div>
         </div>
       </div>
@@ -107,6 +129,8 @@ const mapDispatchToProps = dispatch => {
       fetchUser,
       setToken,
       playSong,
+      pauseSong,
+      resumeSong,
       stopSong
     },
     dispatch

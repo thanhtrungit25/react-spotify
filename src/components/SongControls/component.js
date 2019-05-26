@@ -26,7 +26,7 @@ class SongControls extends Component {
       if (this.state.timeElapsed === 30) {
         clearInterval(this.state.intervalId);
         this.props.stopSong();
-      } else {
+      } else if (!this.props.songPaused) {
         this.props.increaseSongTime(this.state.timeElapsed + 1);
       }
     }, 1000);
@@ -37,7 +37,7 @@ class SongControls extends Component {
   }
 
   render() {
-    const showPlay = !this.props.songPlaying
+    const showPlay = this.props.songPaused
       ? ' fa-play-circle-o '
       : ' fa-pause-circle-o ';
 
@@ -55,7 +55,11 @@ class SongControls extends Component {
 
           <div className="play-btn">
             <i
-              onClick={this.props.songPlaying ? this.props.stopSong : null}
+              onClick={
+                !this.props.songPaused
+                  ? this.props.pauseSong
+                  : this.props.resumeSong
+              }
               className={'fa play-btn' + showPlay}
               aria-hidden="true"
             />

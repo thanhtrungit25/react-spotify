@@ -3,7 +3,9 @@ import './MainHeader.css';
 
 const MainHeader = ({
   songPlaying,
+  songPaused,
   pauseSong,
+  resumeSong,
   headerTitle,
   viewType,
   playplists
@@ -43,8 +45,11 @@ const MainHeader = ({
                 </span>
                 - {currentPlaylist.tracks.total} songs
               </p>
-              <button onClick={pauseSong} className="main-pause-play-btn">
-                {!songPlaying ? 'PLAY' : 'PAUSE'}
+              <button
+                onClick={!songPaused ? pauseSong : resumeSong}
+                className="main-pause-play-btn"
+              >
+                {songPaused ? 'PLAY' : 'PAUSE'}
               </button>
             </div>
           </div>
@@ -53,8 +58,11 @@ const MainHeader = ({
         {(viewType === 'songs' || headerTitle === 'Recently Played') && (
           <div>
             <h3 className="header-title">{headerTitle}</h3>
-            <button onClick={pauseSong} className="main-pause-play-btn">
-              {!songPlaying ? 'PLAY' : 'PAUSE'}
+            <button
+              onClick={!songPaused ? pauseSong : resumeSong}
+              className="main-pause-play-btn"
+            >
+              {songPaused ? 'PLAY' : 'PAUSE'}
             </button>
           </div>
         )}
