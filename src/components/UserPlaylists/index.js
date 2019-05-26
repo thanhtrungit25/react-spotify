@@ -5,6 +5,7 @@ import {
   fetchPlaylists,
   fetchPlaylistSongs
 } from '../../actions/playlistActions';
+import { updateHeaderTitle } from '../../actions/uiActions';
 
 const mapStateToProps = state => {
   return {
@@ -20,7 +21,8 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
       fetchPlaylists,
-      fetchPlaylistSongs
+      fetchPlaylistSongs,
+      updateHeaderTitle
     },
     dispatch
   );

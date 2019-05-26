@@ -20,6 +20,7 @@ class UserPlaylists extends React.Component {
           playlist.id,
           this.props.token
         );
+        this.props.updateHeaderTitle(playlist.name);
       };
 
       return (

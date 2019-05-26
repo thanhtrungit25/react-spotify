@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
   return {
-    songPlaying: state.songsReducer.songPlaying
+    songPlaying: state.songsReducer.songPlaying,
+    headerTitle: state.uiReducer.title
   };
 };
 
