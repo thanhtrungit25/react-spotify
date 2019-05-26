@@ -57,7 +57,8 @@ const MainHeader = ({
 
         {(viewType === 'songs' ||
           headerTitle === 'Recently Played' ||
-          headerTitle === 'Albums') && (
+          headerTitle === 'Albums' ||
+          headerTitle === 'Artists') && (
           <div>
             <h3 className="header-title">{headerTitle}</h3>
             <button
