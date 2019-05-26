@@ -97,10 +97,7 @@ class App extends Component {
                 pauseSong={this.pauseSong}
                 resumeSong={this.resumeSong}
               />
-              <UserSongs
-                audioControl={this.audioControl}
-                stopSong={this.stopSong}
-              />
+              <UserSongs audioControl={this.audioControl} />
             </div>
           </div>
 
