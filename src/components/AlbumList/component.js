@@ -5,7 +5,11 @@ class AlbumList extends Component {
   renderAlbums() {
     return this.props.songs.map((song, i) => {
       return (
-        <li className="album-item" key={i}>
+        <li
+          onClick={() => this.props.audioControl(song)}
+          className="album-item"
+          key={i}
+        >
           <div>
             <div className="album-image">
               {song.track.album.images && (

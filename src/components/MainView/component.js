@@ -6,7 +6,7 @@ import './MainView.css';
 const MainView = ({ audioControl, headerTitle }) => (
   <div>
     {headerTitle === 'Albums' ? (
-      <AlbumList />
+      <AlbumList audioControl={audioControl} />
     ) : (
       <SongList audioControl={audioControl} />
     )}
