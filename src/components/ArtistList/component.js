@@ -8,10 +8,12 @@ class ArtistList extends Component {
         <li className="artist-item" key={i}>
           <div>
             <div className="artist-image">
-              <img
-                src={artist.images[0] ? artist.images[0].url : ''}
-                alt="artist"
-              />
+              {
+                <img
+                  src={artist.images[0] ? artist.images[0].url : ''}
+                  alt="artist"
+                />
+              }
             </div>
             <div className="artist-details">
               <p>{artist.name}</p>
