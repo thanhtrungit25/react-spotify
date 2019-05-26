@@ -3,7 +3,8 @@ export const songsReducer = (
     fetchSongsPending: true,
     songPlaying: false,
     timeElapsed: 0,
-    songId: 0
+    songId: 0,
+    viewType: 'songs'
   },
   action
 ) => {
@@ -18,7 +19,8 @@ export const songsReducer = (
         ...state,
         songs: action.songs,
         fetchSongsError: false,
-        fetchSongsPending: false
+        fetchSongsPending: false,
+        viewType: 'songs'
       };
     case 'FETCH_SONGS_ERROR':
       return {
@@ -55,7 +57,8 @@ export const songsReducer = (
         ...state,
         songs: action.songs,
         fetchSongsError: false,
-        fetchSongsPending: false
+        fetchSongsPending: false,
+        viewType: 'playlist'
       };
     case 'FETCH_PLAYLIST_SONGS_ERROR':
       return {
