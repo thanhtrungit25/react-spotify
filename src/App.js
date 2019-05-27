@@ -17,7 +17,7 @@ import ArtWork from './components/ArtWork';
 import MainHeader from './components/MainHeader';
 import MainView from './components/MainView';
 import Header from './components/Header';
-import SongControls from './components/SongControls';
+import Footer from './components/Footer';
 
 class App extends Component {
   static audio;
@@ -109,13 +109,11 @@ class App extends Component {
             </div>
           </div>
 
-          <div className="footer">
-            <SongControls
-              pauseSong={this.pauseSong}
-              resumeSong={this.resumeSong}
-              stopSong={this.stopSong}
-            />
-          </div>
+          <Footer
+            pauseSong={this.pauseSong}
+            resumeSong={this.resumeSong}
+            stopSong={this.stopSong}
+          />
         </div>
       </div>
     );
