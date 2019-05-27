@@ -13,6 +13,7 @@ const MainHeader = ({
   updateViewType,
   updateHeaderTitle,
   fetchNewReleases,
+  fetchFeatured,
   token
 }) => {
   let currentPlaylist;
@@ -75,31 +76,40 @@ const MainHeader = ({
           </div>
         )}
 
-        {viewType === 'Browse' &&
-          (headerTitle === 'Browse' ||
-            headerTitle === 'New Releases' ||
-            headerTitle === 'Genres') && (
-            <div>
-              <p
-                onClick={() => {
-                  fetchCategories(token);
-                  updateViewType('Genres');
-                  updateHeaderTitle('Genres');
-                }}
-              >
-                Genres
-              </p>
-              <p
-                onClick={() => {
-                  fetchNewReleases(token);
-                  updateViewType('New Releases');
-                  updateHeaderTitle('New Releases');
-                }}
-              >
-                New Releases
-              </p>
-            </div>
-          )}
+        {(headerTitle === 'Browse' ||
+          headerTitle === 'New Releases' ||
+          headerTitle === 'Genres' ||
+          headerTitle === 'Featured') && (
+          <div>
+            <p
+              onClick={() => {
+                fetchCategories(token);
+                updateViewType('Genres');
+                updateHeaderTitle('Genres');
+              }}
+            >
+              Genres
+            </p>
+            <p
+              onClick={() => {
+                fetchNewReleases(token);
+                updateViewType('New Releases');
+                updateHeaderTitle('New Releases');
+              }}
+            >
+              New Releases
+            </p>
+            <p
+              onClick={() => {
+                fetchFeatured(token);
+                updateViewType('Featured');
+                updateHeaderTitle('Featured');
+              }}
+            >
+              Featured
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

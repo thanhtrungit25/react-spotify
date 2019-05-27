@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { fetchCategories } from '../../actions/browseActions';
 import { updateHeaderTitle } from '../../actions/uiActions';
 import { updateViewType } from '../../actions/songActions';
-import { fetchNewReleases } from '../../actions/browseActions';
+import { fetchNewReleases, fetchFeatured } from '../../actions/browseActions';
 
 const mapStateToProps = state => {
   return {
@@ -23,7 +23,8 @@ const mapDispatchToProps = dispatch => {
       fetchCategories,
       updateHeaderTitle,
       updateViewType,
-      fetchNewReleases
+      fetchNewReleases,
+      fetchFeatured
     },
     dispatch
   );

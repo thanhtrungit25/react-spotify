@@ -22,6 +22,18 @@ export const browseReducer = (state = {}, action) => {
         ...state,
         fetchNewReleasesError: true
       };
+    case 'FETCH_FEATURED_SUCCESS':
+      return {
+        ...state,
+        categories: action.featured.items,
+        fetchFeaturedError: false
+      };
+
+    case 'FETCH_FEATURED_ERROR':
+      return {
+        ...state,
+        fetchFeaturedError: true
+      };
     default:
       return state;
   }

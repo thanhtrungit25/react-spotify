@@ -11,7 +11,8 @@ const MainView = ({ audioControl, headerTitle, pauseSong, resumeSong }) => (
       <AlbumList audioControl={audioControl} />
     ) : headerTitle === 'Browse' ||
       headerTitle === 'Genres' ||
-      headerTitle === 'New Releases' ? (
+      headerTitle === 'New Releases' ||
+      headerTitle === 'Featured' ? (
       <BrowseView />
     ) : headerTitle === 'Artists' ? (
       <ArtistList />
