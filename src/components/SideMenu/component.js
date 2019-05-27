@@ -8,12 +8,19 @@ const SideMenu = ({
   fetchArtists,
   updateHeaderTitle,
   updateViewType,
+  fetchFeatured,
   token,
   artistIds
 }) => {
   const menuItemClicked = name => {
     updateHeaderTitle(name);
     updateViewType(name);
+  };
+
+  const browseClicked = () => {
+    updateHeaderTitle('Browse');
+    updateViewType('Featured');
+    fetchFeatured(token);
   };
 
   const renderSideMenu = () => {
@@ -56,10 +63,7 @@ const SideMenu = ({
   };
   return (
     <ul className="side-menu-container">
-      <li
-        onClick={() => menuItemClicked('Browse')}
-        className="side-menu-item browse"
-      >
+      <li onClick={() => browseClicked()} className="side-menu-item browse">
         Browse
       </li>
       <li className="side-menu-item radio">Radio</li>
