@@ -38,8 +38,8 @@ class SongControls extends Component {
 
   render() {
     const showPlay = this.props.songPaused
-      ? ' fa-play-circle-o '
-      : ' fa-pause-circle-o ';
+      ? ' fa-play-circle-o play-btn'
+      : ' fa-pause-circle-o pause-btn';
 
     return (
       <div className="song-player-container">

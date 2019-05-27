@@ -51,18 +51,24 @@ class App extends Component {
   }
 
   pauseSong = () => {
-    this.props.pauseSong();
-    this.audio.pause();
+    if (this.audio) {
+      this.props.pauseSong();
+      this.audio.pause();
+    }
   };
 
   resumeSong = () => {
-    this.props.resumeSong();
-    this.audio.play();
+    if (this.audio) {
+      this.props.resumeSong();
+      this.audio.play();
+    }
   };
 
   stopSong = () => {
-    this.props.stopSong();
-    this.audio.pause();
+    if (this.audio) {
+      this.props.stopSong();
+      this.audio.pause();
+    }
   };
 
   audioControl = song => {

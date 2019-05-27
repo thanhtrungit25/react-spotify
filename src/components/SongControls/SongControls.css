@@ -17,10 +17,15 @@
   font-size: 16px;
 }
 
-.play-btn {
-  font-size: 40px;
+.song-player-container .play-btn {
   position: relative;
   top: -6px;
+  font-size: 40px;
+  margin: 0 5px;
+}
+
+.song-player-container .pause-btn {
+  
 }
 
 .play-btn .fa {
