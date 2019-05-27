@@ -4,14 +4,18 @@ import AlbumList from '../AlbumList';
 import ArtistList from '../ArtistList';
 import './MainView.css';
 
-const MainView = ({ audioControl, headerTitle }) => (
+const MainView = ({ audioControl, headerTitle, pauseSong, resumeSong }) => (
   <div>
     {headerTitle === 'Albums' ? (
       <AlbumList audioControl={audioControl} />
     ) : headerTitle === 'Artists' ? (
       <ArtistList />
     ) : (
-      <SongList audioControl={audioControl} />
+      <SongList
+        audioControl={audioControl}
+        pauseSong={pauseSong}
+        resumeSong={resumeSong}
+      />
     )}
   </div>
 );

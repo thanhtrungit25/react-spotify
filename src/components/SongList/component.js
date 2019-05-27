@@ -21,18 +21,38 @@ class SongList extends React.Component {
 
   renderSongs() {
     return this.props.songs.map(song => {
+      const buttonClass =
+        song.track.id === this.props.songId && !this.props.songPaused
+          ? 'fa-pause-circle-o'
+          : 'fa-play-circle-o';
+
+      const isSongPlayingAndPaused = () => {
+        return this.props.songPlaying && this.props.songPaused;
+      };
+      const isSongPlayingAndNotPaused = () => {
+        return this.props.songPlaying && !this.props.songPaused;
+      };
+      const isSongAddedToLibrary = song => {
+        return song.track.id === this.props.songId;
+      };
       return (
         <li
-          onClick={() => this.props.audioControl(song)}
+          onClick={() => {
+            isSongAddedToLibrary(song) && isSongPlayingAndPaused()
+              ? this.props.resumeSong()
+              : isSongAddedToLibrary(song) && isSongPlayingAndNotPaused()
+              ? this.props.pauseSong()
+              : this.props.audioControl(song);
+          }}
           className={
-            song.track.id === this.props.songId
+            isSongAddedToLibrary(song)
               ? 'active user-song-item'
               : 'user-song-item'
           }
           key={song.track.id}
         >
           <div className="play-song">
-            <i className="fa fa-play-circle-o play-btn" aria-hidden="true" />
+            <i className={`fa ${buttonClass} play-btn`} aria-hidden="true" />
           </div>
 
           {this.props.viewType !== 'songs' && (
