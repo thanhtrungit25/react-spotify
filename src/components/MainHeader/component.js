@@ -8,7 +8,7 @@ const MainHeader = ({
   resumeSong,
   headerTitle,
   viewType,
-  playplists,
+  playlistMenu,
   fetchCategories,
   updateViewType,
   updateHeaderTitle,
@@ -19,7 +19,7 @@ const MainHeader = ({
   let currentPlaylist;
 
   if (viewType === 'playlist') {
-    currentPlaylist = playplists.filter(playlist => {
+    currentPlaylist = playlistMenu.filter(playlist => {
       return playlist.name === headerTitle;
     })[0];
   }

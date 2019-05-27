@@ -8,7 +8,7 @@ class UserPlaylists extends React.Component {
       nextProps.token !== '' &&
       nextProps.playlists === ''
     ) {
-      this.props.fetchPlaylists(nextProps.userId, nextProps.token);
+      this.props.fetchPlaylistsMenu(nextProps.userId, nextProps.token);
     }
   }
 

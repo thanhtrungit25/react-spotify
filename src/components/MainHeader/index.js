@@ -12,7 +12,7 @@ const mapStateToProps = state => {
     songPaused: state.songsReducer.songPaused,
     viewType: state.songsReducer.viewType,
     headerTitle: state.uiReducer.title,
-    playplists: state.playlistReducer.playlists,
+    playlistMenu: state.playlistReducer.playlistMenu,
     token: state.tokenReducer.token
   };
 };
