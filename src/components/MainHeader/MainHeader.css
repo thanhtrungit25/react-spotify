@@ -1,5 +1,5 @@
 .playlist-image {
-  width: 200px;
+  width: 230px;
 }
 
 .playlist-title-container {
@@ -9,18 +9,19 @@
 .playlist-info-container {
   padding-left: 20px;
   position: relative;
-  top: 50px;
+  top: 70px;
 }
 
 .created-by {
   font-size: 13px;
   font-family: 'Proxima Thin', Georgia, sans-serif;
-  color: rgb(64, 64, 64);;
+  color: #aaa;
   padding: 8px 0;
 }
 
 .lighter-text {
   color: #fff;
+  font-family: 'Proxima Nova', Georgia, sans-serif;
 }
 
 .playlist-text {
