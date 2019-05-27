@@ -81,6 +81,7 @@ const MainHeader = ({
             <h3 className="header-title">{headerTitle}</h3>
             <div className="browse-headers">
               <p
+                className={viewType === 'Genres' ? 'active' : ''}
                 onClick={() => {
                   fetchCategories(token);
                   updateViewType('Genres');
@@ -90,6 +91,7 @@ const MainHeader = ({
                 Genres
               </p>
               <p
+                className={viewType === 'New Releases' ? 'active' : ''}
                 onClick={() => {
                   fetchNewReleases(token);
                   updateViewType('New Releases');
@@ -99,6 +101,7 @@ const MainHeader = ({
                 New Releases
               </p>
               <p
+                className={viewType === 'Featured' ? 'active' : ''}
                 onClick={() => {
                   fetchFeatured(token);
                   updateViewType('Featured');
