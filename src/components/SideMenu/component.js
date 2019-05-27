@@ -56,6 +56,7 @@ const SideMenu = ({
   };
   return (
     <ul className="side-menu-container">
+      <li className="side-menu-item browse">Browse</li>
       <h3 className="user-library-header">Your Library</h3>
       {renderSideMenu()}
     </ul>

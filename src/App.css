@@ -14,12 +14,6 @@ body {
   /* z-index: 2; */
 }
 
-.header {
-  position: fixed;
-  width: 940px;
-  z-index: 1000;
-}
-
 .app-container {
   display: flex;
   position: relative;

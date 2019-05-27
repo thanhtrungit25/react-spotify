@@ -6,12 +6,13 @@
 
 .user-image {
   border-radius: 50%;
-  height: 50px;
+  height: 30px;
 }
 
 .user-name {
+  font-size: 14px;
   color: #fff;
   position: relative;
-  left: 10px;
-  top: 15px;
+  margin-left: 10px;
+  top: 5px;
 }

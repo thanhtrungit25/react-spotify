@@ -11,13 +11,12 @@ import {
 } from './actions/songActions';
 import './App.css';
 
-import UserDetails from './components/UserDetails';
 import SideMenu from './components/SideMenu';
 import UserPlaylists from './components/UserPlaylists';
 import ArtWork from './components/ArtWork';
 import MainHeader from './components/MainHeader';
 import MainView from './components/MainView';
-// import UserSongs from './components/UserSongs';
+import Header from './components/Header';
 import SongControls from './components/SongControls';
 
 class App extends Component {
@@ -96,9 +95,7 @@ class App extends Component {
           </div>
 
           <div className="main-section">
-            <div className="header">
-              <UserDetails />
-            </div>
+            <Header />
             <div className="user-songs-container">
               <MainHeader
                 pauseSong={this.pauseSong}
