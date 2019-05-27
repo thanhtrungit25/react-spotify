@@ -5,11 +5,16 @@ const BrowseView = ({ categories }) => {
   let browseView;
 
   if (categories) {
-    browseView = categories.items.map((category, i) => {
+    browseView = categories.map((category, i) => {
       return (
         <li className="category-item" key={i}>
           <div className="category-image">
-            <img src={category.icons[0].url} alt="category" />
+            <img
+              src={
+                category.icons ? category.icons[0].url : category.images[0].url
+              }
+              alt="category"
+            />
             <p className="category-name">{category.name}</p>
           </div>
         </li>

@@ -1,7 +1,10 @@
 import MainHeader from './component';
 import { connect } from 'react-redux';
-import { fetchCategories } from '../../actions/browseActions';
 import { bindActionCreators } from 'redux';
+import { fetchCategories } from '../../actions/browseActions';
+import { updateHeaderTitle } from '../../actions/uiActions';
+import { updateViewType } from '../../actions/songActions';
+import { fetchNewReleases } from '../../actions/browseActions';
 
 const mapStateToProps = state => {
   return {
@@ -17,7 +20,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      fetchCategories
+      fetchCategories,
+      updateHeaderTitle,
+      updateViewType,
+      fetchNewReleases
     },
     dispatch
   );

@@ -10,6 +10,9 @@ const MainHeader = ({
   viewType,
   playplists,
   fetchCategories,
+  updateViewType,
+  updateHeaderTitle,
+  fetchNewReleases,
   token
 }) => {
   let currentPlaylist;
@@ -72,9 +75,31 @@ const MainHeader = ({
           </div>
         )}
 
-        {viewType === 'Browse' && (
-          <p onClick={() => fetchCategories(token)}>Browse</p>
-        )}
+        {viewType === 'Browse' &&
+          (headerTitle === 'Browse' ||
+            headerTitle === 'New Releases' ||
+            headerTitle === 'Genres') && (
+            <div>
+              <p
+                onClick={() => {
+                  fetchCategories(token);
+                  updateViewType('Genres');
+                  updateHeaderTitle('Genres');
+                }}
+              >
+                Genres
+              </p>
+              <p
+                onClick={() => {
+                  fetchNewReleases(token);
+                  updateViewType('New Releases');
+                  updateHeaderTitle('New Releases');
+                }}
+              >
+                New Releases
+              </p>
+            </div>
+          )}
       </div>
     </div>
   );
