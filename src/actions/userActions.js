@@ -24,6 +24,9 @@ export const fetchUser = accessToken => {
         return res.json();
       })
       .then(user => {
+        if (user.error && user.error.status === 401) {
+          window.location.href = './';
+        }
         dispatch(fetchUserSuccess(user));
       })
       .catch(err => {
