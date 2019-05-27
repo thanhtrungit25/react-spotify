@@ -8,7 +8,9 @@ const MainHeader = ({
   resumeSong,
   headerTitle,
   viewType,
-  playplists
+  playplists,
+  fetchCategories,
+  token
 }) => {
   let currentPlaylist;
 
@@ -68,6 +70,10 @@ const MainHeader = ({
               {songPaused ? 'PLAY' : 'PAUSE'}
             </button>
           </div>
+        )}
+
+        {viewType === 'Browse' && (
+          <p onClick={() => fetchCategories(token)}>Browse</p>
         )}
       </div>
     </div>
