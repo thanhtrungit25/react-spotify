@@ -9,10 +9,7 @@ const MainView = ({ audioControl, headerTitle, pauseSong, resumeSong }) => (
   <div>
     {headerTitle === 'Albums' ? (
       <AlbumList audioControl={audioControl} />
-    ) : headerTitle === 'Browse' ||
-      headerTitle === 'Genres' ||
-      headerTitle === 'New Releases' ||
-      headerTitle === 'Featured' ? (
+    ) : headerTitle === 'Browse' ? (
       <BrowseView />
     ) : headerTitle === 'Artists' ? (
       <ArtistList />
