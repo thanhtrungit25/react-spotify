@@ -6,14 +6,14 @@ class UserPlaylists extends React.Component {
     if (
       nextProps.userId !== '' &&
       nextProps.token !== '' &&
-      nextProps.playlists === ''
+      nextProps.playlistMenu === ''
     ) {
       this.props.fetchPlaylistsMenu(nextProps.userId, nextProps.token);
     }
   }
 
   renderPlaylists() {
-    return this.props.playlists.map(playlist => {
+    return this.props.playlistMenu.map(playlist => {
       const getPlaylistSongs = () => {
         this.props.fetchPlaylistSongs(
           playlist.owner.id,
@@ -39,7 +39,7 @@ class UserPlaylists extends React.Component {
     return (
       <div className="user-playlist-container">
         <h3 className="user-playlist-header">Playlists</h3>
-        {this.props.playlists && this.renderPlaylists()}
+        {this.props.playlistMenu && this.renderPlaylists()}
       </div>
     );
   }

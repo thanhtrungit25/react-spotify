@@ -10,7 +10,7 @@ import { updateHeaderTitle } from '../../actions/uiActions';
 const mapStateToProps = state => {
   return {
     userId: state.userReducer.user ? state.userReducer.user.id : '',
-    playlists: state.playlistReducer.playlistMenu
+    playlistMenu: state.playlistReducer.playlistMenu
       ? state.playlistReducer.playlistMenu
       : '',
     token: state.tokenReducer.token ? state.tokenReducer.token : ''
